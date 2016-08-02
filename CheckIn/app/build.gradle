@@ -1,0 +1,56 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.0"
+
+    repositories {
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    }
+
+
+    defaultConfig {
+        applicationId "com.thecheckinproject.checkin"
+        minSdkVersion 16
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    productFlavors {
+
+        // Build variant to include the Facebook Android SDk
+        // The Facebook Android SDK has a min SDK version of 15
+        facebook {
+            minSdkVersion 16
+        }
+
+        // Build variant to exclude the Facebook Android SDK
+        // Firebase Authentication has a min SDK version of 9
+        nofacebook {
+            minSdkVersion 10
+        }
+
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.0.0'
+    compile 'com.google.firebase:firebase-auth:9.2.1'
+    compile 'com.google.android.gms:play-services-auth:9.2.1'
+    compile 'com.facebook.android:facebook-android-sdk:4.10.1'
+    compile 'com.google.firebase:firebase-core:9.0.0'
+}
+
+apply plugin: 'com.google.gms.google-services'
+

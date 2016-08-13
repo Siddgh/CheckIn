@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.thecheckinproject.checkin.Contents.MapsActivity;
+
 public class SplashScreen extends AppCompatActivity {
 
     @Override
@@ -24,11 +26,10 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
 
-                startActivity(new Intent(getBaseContext(), LoginActivity.class));
-
+                startActivity(new Intent(getBaseContext(), MapsActivity.class));
                 finish();
             }
-        },2000);
+        },100);
 
 
     }

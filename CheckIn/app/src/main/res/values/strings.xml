@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">CheckIn</string>
     <string name="facebook_app_id">909585535854856</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
